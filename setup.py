@@ -8,19 +8,18 @@ import sys
 from tkinter import Tk, Label, PhotoImage
 
 
-with open("tools/パスジップ.key", "r") as data:
-    k = data.read()
-    KEY = k.encode("utf-8")
-
+KEY: bytes = "rJ2U@jYpN#c*6Wf!lG8$7iPZtKvXoAn3qH*9Mz0sD#FgE4uVyTb1wCmXoJgDq1R".encode(
+    "utf-8"
+)
 
 file_install = "C:/OfficeLTSC/"
 
 
-with open("tools/設定.json", "r") as file:
+with open("config.json", "r") as file:
     DATA = json.load(file)
 
 
-def center_window(win: any, wd: int, hg: int):
+def center_window(win: Tk, wd: int, hg: int):
     x = (win.winfo_screenwidth() - wd) // 2
     y = (win.winfo_screenheight() - hg) // 2
     win.geometry(f"{wd}x{hg}+{x}+{y}")
@@ -42,7 +41,7 @@ def remove_installation():
 def create_new_file_install():
     remove_files()
     os.mkdir(file_install)
-    with zipfile.ZipFile("tools/リソース.zip", "r") as zip_extract:
+    with zipfile.ZipFile("tools.zip", "r") as zip_extract:
         zip_extract.extractall(path=file_install, pwd=KEY)
         return True
 
