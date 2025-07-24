@@ -1,0 +1,2 @@
+rm *dist*
+rm release

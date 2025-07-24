@@ -28,6 +28,6 @@
     createDesktopShortcut: false,
     createStartMenuShortcut: true,
     deleteAppDataOnUninstall: true,
-    uninstallDisplayName: "{productName}",
+    uninstallDisplayName: "${productName}",
   },
 }
