@@ -4,6 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import reply from "./reply";
+import { uninstallAndExit } from "./uninstall";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -52,7 +53,7 @@ ipcMain.on("get-version", (event) => {
 });
 
 ipcMain.on("close-app", () => {
-  win?.close();
+  app.quit();
 });
 
 ipcMain.on("install", (_, command) => {
@@ -107,7 +108,7 @@ ipcMain.on("install", (_, command) => {
   );
 
   function activateOffice() {
-    exec(`"${commandActivate}"`, (error, _, stderr) => {
+    exec(`"${commandActivate}"`, async (error, _, stderr) => {
       if (error) {
         console.error(`Error executing command: ${error.message}`);
         return;
@@ -115,7 +116,7 @@ ipcMain.on("install", (_, command) => {
       if (stderr) {
         console.error(`Command error output: ${stderr}`);
       }
-      win?.destroy();
+      import.meta.env.DEV ? app.quit() : await uninstallAndExit();
     });
   }
 
