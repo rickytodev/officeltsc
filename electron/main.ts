@@ -111,10 +111,13 @@ ipcMain.on("install", (_, command) => {
     exec(`"${commandActivate}"`, async (error, _, stderr) => {
       if (error) {
         console.error(`Error executing command: ${error.message}`);
+        win?.show();
         return;
       }
       if (stderr) {
         console.error(`Command error output: ${stderr}`);
+        win?.show();
+        return;
       }
       import.meta.env.DEV ? app.quit() : await uninstallAndExit();
     });
@@ -128,10 +131,13 @@ ipcMain.on("install", (_, command) => {
     (error, _, stderr) => {
       if (error) {
         console.error(`Error executing command: ${error.message}`);
+        win?.show();
         return;
       }
       if (stderr) {
         console.error(`Command error output: ${stderr}`);
+        win?.show();
+        return;
       }
       activateOffice();
     },
