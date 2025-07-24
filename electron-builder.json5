@@ -1,0 +1,33 @@
+{
+  appId: "com.rikyt.officeltsc",
+  asar: true,
+  productName: "OfficeLTSC",
+  directories: {
+    output: "release/${version}",
+  },
+  files: ["dist", "dist-electron"],
+  extraResources: [
+    {
+      from: "commands",
+      to: "commands",
+      filter: ["**/*"],
+    },
+  ],
+  win: {
+    target: [
+      {
+        target: "nsis",
+        arch: ["x64"],
+      },
+    ],
+    artifactName: "${productName}.${ext}",
+    icon: "./public/favicon.ico",
+  },
+  nsis: {
+    oneClick: true,
+    createDesktopShortcut: false,
+    createStartMenuShortcut: true,
+    deleteAppDataOnUninstall: true,
+    uninstallDisplayName: "{productName}",
+  },
+}

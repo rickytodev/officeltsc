@@ -1,0 +1,27 @@
+[
+  {
+    "label": "Word",
+    "img": "word",
+    "color": "16, 63, 145"
+  },
+  {
+    "label": "Excel",
+    "img": "excel",
+    "color": "24, 92, 55"
+  },
+  {
+    "label": "PowerPoint",
+    "img": "powerpoint",
+    "color": "211, 82, 48"
+  },
+  {
+    "label": "Access",
+    "img": "access",
+    "color": "136, 20, 33"
+  },
+  {
+    "label": "Teams",
+    "img": "teams",
+    "color": "80, 89, 201"
+  }
+]

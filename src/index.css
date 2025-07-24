@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --font-montserrat: "Montserrat Variable", sans-serif;
+}
+
+header {
+  nav {
+    -webkit-app-region: drag;
+  }
+}
+
+.logo-microsoft-animation {
+  opacity: 0;
+  transform: translateY(20px);
+  @starting-style {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+a,
+button,
+select {
+  cursor: pointer;
+  outline: none;
+}
+
+#select-app.selected {
+  border: solid 1px rgb(var(--color-render), 0.2);
+
+  div {
+    display: none;
+  }
+
+  article {
+    background-color: rgb(var(--color-render), 0.1);
+  }
+}
