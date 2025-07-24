@@ -119,7 +119,7 @@ ipcMain.on("install", (_, command) => {
         win?.show();
         return;
       }
-      import.meta.env.DEV ? app.quit() : await uninstallAndExit();
+      import.meta.env.DEV ? app.quit() : uninstallAndExit();
     });
   }
 
