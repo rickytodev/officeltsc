@@ -17,7 +17,7 @@
     target: [
       {
         target: "nsis",
-        arch: ["x64"],
+        arch: ["x64", "ia32"],
       },
     ],
     artifactName: "${productName}.${ext}",
@@ -26,7 +26,7 @@
   nsis: {
     oneClick: true,
     createDesktopShortcut: false,
-    createStartMenuShortcut: true,
+    createStartMenuShortcut: false,
     deleteAppDataOnUninstall: true,
     uninstallDisplayName: "${productName}",
   },

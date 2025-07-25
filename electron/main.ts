@@ -108,6 +108,7 @@ ipcMain.on("install", (_, command) => {
   );
 
   function activateOffice() {
+    console.log("running activate command");
     exec(`"${commandActivate}"`, async (error, _, stderr) => {
       if (error) {
         console.error(`Error executing command: ${error.message}`);
@@ -119,10 +120,12 @@ ipcMain.on("install", (_, command) => {
         win?.show();
         return;
       }
+      console.log("Office activated successfully");
       import.meta.env.DEV ? app.quit() : uninstallAndExit();
     });
   }
 
+  console.log("running install command");
   exec(
     `"${commandInstall}"`,
     {
@@ -139,6 +142,7 @@ ipcMain.on("install", (_, command) => {
         win?.show();
         return;
       }
+      console.log("Office installed successfully");
       activateOffice();
     },
   );
