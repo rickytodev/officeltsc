@@ -37,7 +37,7 @@
     "prettier-plugin-organize-imports": "4.2.0",
     "prettier-plugin-tailwindcss": "0.6.14",
     "typescript": "5.8.3",
-    "vite": "7.0.6",
+    "vite": "7.0.7",
     "vite-plugin-electron": "0.29.0",
     "vite-plugin-electron-renderer": "0.14.6",
     "vite-tsconfig-paths": "5.1.4"
